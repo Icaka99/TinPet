@@ -1,0 +1,34 @@
+.app {
+  text-align: center;
+}
+
+.navigation {
+  width: 100%;
+  background-color: #234465;
+  color: white;
+  position: fixed;
+  top: 0;
+  border-bottom: 2px solid #ffa000;
+  border-top: 2px solid #ffa000;
+  text-align: left;
+}
+
+nav .list-item {
+  display: inline-block;
+  height: auto;
+  margin-right: 2%;
+  cursor: pointer;
+  padding: 0.5%;
+  margin: 0.1%;
+  vertical-align: top;
+}
+
+nav .list-item a {
+  color: white;
+  text-decoration: none;
+}
+
+nav .list-item img {
+  width: 64px;
+  height: 64px;
+}
