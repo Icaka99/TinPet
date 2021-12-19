@@ -13,7 +13,10 @@ exports.getAllPosts = (req, res) => {
                 postId: doc.id,
                 body: doc.data().body,
                 userHandle: doc.data().userHandle,
-                createdAt: doc.data().createdAt
+                createdAt: doc.data().createdAt,
+                commentCount: doc.data().commentCount,
+                likeCount: doc.data().likeCount,
+                userImage: doc.data().userImage
             });
         });
         return res.json(posts);
@@ -37,7 +40,7 @@ exports.postOnePost = (req, res) => {
         .add(newPost)
         .then(doc => {
             const resPost = newPost;
-            resPost.screamId = doc.id;
+            resPost.postId = doc.id;
             res.json(resPost);
         })
         .catch(err => {
@@ -80,7 +83,7 @@ exports.getPost = (req, res) => {
 //Comment on one Post
 exports.commentOnPost = (req, res) => {
     if (req.body.body.trim() === '') {
-        return res.status(400).json({ error: 'Must not be empty!'});
+        return res.status(400).json({ comment: 'Must not be empty!'});
     }
 
     const newComment = {
@@ -226,7 +229,7 @@ exports.deletePost = (req, res) => {
             }
         })
         .then(() => {
-            res.json({ message: 'Scream deleted successfully!'});
+            res.json({ message: 'Post deleted successfully!'});
         })
         .catch(err => {
             console.error(err);

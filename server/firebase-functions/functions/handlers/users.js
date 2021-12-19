@@ -59,9 +59,9 @@ db.doc(`/users/${newUser.handle}`).get()
     .catch(err => {
         console.error(err);
         if (err.code === 'auth/email-already-in-use') {
-            return res.status(400).json({email: 'Email is already in use'});
+            return res.status(400).json({email: 'Email is already in use!'});
         } else {
-            return res.status(500).json({error: err.code});
+            return res.status(500).json({genereal: 'Something went wrong, please try again!'});
         }
     })
 }
@@ -88,11 +88,7 @@ exports.login = (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            if (err.code === 'auth/wrong-password') {
-                return res.status(403).json({general: 'Wrong credentials, please try again!'})
-            } else {
-                return res.status(500).json({error: err.code});
-            }
+            return res.status(403).json({general: 'Wrong credentials, please try again!'})
         })
 }
 
@@ -136,8 +132,8 @@ exports.getUserDetails = (req, res) => {
                 createdAt: doc.data().createdAt,
                 userHandle: doc.data().userHandle,
                 userImage: doc.data().userImage,
-                likesCount: doc.data().likesCount,
-                commentsCount: doc.data().commentsCount,
+                likeCount: doc.data().likeCount,
+                commentCount: doc.data().commentCount,
                 postId: doc.id
             });
         });
