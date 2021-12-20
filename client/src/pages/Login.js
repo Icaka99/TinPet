@@ -12,34 +12,9 @@ import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { CircularProgress } from '@material-ui/core';
 
-const styles = {
-    form: {
-        textAlign: 'center'
-    },
-    image: {
-        margin: '20px auto 20px auto',
-        width: '70px',
-        height: '70px',
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    textField: {
-        margin: '10px auto 10px auto'
-    },
-    button: {
-        marginTop: 20,
-        position: 'relative'
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute'
-    }
-}
+const styles = (theme) => ({
+    ...theme.commonStyles
+});
 
 class Login extends Component {
     constructor() {
@@ -64,14 +39,13 @@ class Login extends Component {
         axios
             .post('/login', userData)
             .then((res) => {
+                localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
                 this.setState({
                     loading: false
                 });
-                console.log(this.context);
                 this.props.history.push('/');
             })
             .catch((err) => {
-                console.log(err);
                 this.setState({
                     errors: err.response.data,
                     loading: false
@@ -114,7 +88,7 @@ class Login extends Component {
                         )}
                         <Button type="submit" variant="contained" color="primary" className={classes.button} disabled={loading}>
                             Login
-                            {loading && (
+                            {loading && (   
                                 <CircularProgress size={30} className={classes.progress} />
                             )}
                         </Button>
