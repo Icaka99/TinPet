@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
 import { PropTypes } from 'prop-types';
 import AppIcon from '../images/favicon.png';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 //Redux
 import { connect } from 'react-redux';
@@ -45,7 +45,7 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.loginUser(userData, this.props.history);
+        this.props.loginUser(userData, this.props.navigate);
     }
 
     handleChange = (event) => {
@@ -113,4 +113,9 @@ const mapActionsToProps = {
     loginUser
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(Login));
+function WithNavigate(props) {
+    let navigate = useNavigate();
+    return <Login {...props} navigate={navigate} />
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(WithNavigate));

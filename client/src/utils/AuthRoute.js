@@ -1,8 +1,19 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const AuthRoute = ({children}) => {
-    return children.props.authenticated ? <Navigate to='/' /> : children;
+const AuthRoute = ({ authenticated, children}) => {
+    return authenticated ? <Navigate to='/' /> : children;
 }
 
-export default AuthRoute;
+const mapStateToPros = (state) => ({
+    authenticated: state.user.authenticated,
+    user: state.user
+});
+
+AuthRoute.propTypes = {
+    user: PropTypes.object.isRequired
+}
+
+export default connect(mapStateToPros)(AuthRoute);
