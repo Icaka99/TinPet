@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { logoutUser, uploadImage } from '../redux/actions/userActions';
 
 //MUI stuff
-import { Button, Icon, IconButton, Paper } from '@material-ui/core';
+import { Button, Paper } from '@material-ui/core';
 import MuiLink from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography';
 
