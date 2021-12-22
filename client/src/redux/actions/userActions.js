@@ -1,6 +1,5 @@
 import { SET_USER, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, SET_UNAUTHENTICATED, LOADING_USER } from '../types';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 
 export const loginUser = (userData, navigate) => (dispatch) => {
     dispatch({ type: LOADING_UI });
