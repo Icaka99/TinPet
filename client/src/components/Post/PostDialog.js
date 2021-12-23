@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { PropTypes } from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import MyButton from '../utils/MyButton';
+import MyButton from '../../utils/MyButton';
 import dayjs from 'dayjs';
 import LikeButton from './LikeButton';
 import { Link } from 'react-router-dom';
 
 //Redux
 import { connect } from 'react-redux';
-import { getPost } from '../redux/actions/dataActions';
+import { getPost } from '../../redux/actions/dataActions';
 
 //MUI stuff
 import { Dialog, DialogContent, CircularProgress, Grid, Typography } from '@material-ui/core';

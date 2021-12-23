@@ -3,12 +3,12 @@ import { PropTypes } from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
-import EditDetails from './EditDetails';
-import MyButton from '../utils/MyButton';
+import EditDetails from '../Profile/EditDetails';
+import MyButton from '../../utils/MyButton';
 
 //Redux
 import { connect } from 'react-redux';
-import { logoutUser, uploadImage } from '../redux/actions/userActions';
+import { logoutUser, uploadImage } from '../../redux/actions/userActions';
 
 //MUI stuff
 import { Button, Paper } from '@material-ui/core';
