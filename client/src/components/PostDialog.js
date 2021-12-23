@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import MyButton from '../utils/MyButton';
 import dayjs from 'dayjs';
+import LikeButton from './LikeButton';
 import { Link } from 'react-router-dom';
 
 //Redux
@@ -10,11 +11,12 @@ import { connect } from 'react-redux';
 import { getPost } from '../redux/actions/dataActions';
 
 //MUI stuff
-import { Button, Dialog, DialogContent, DialogTitle, TextField, CircularProgress, Grid, Typography } from '@material-ui/core';
+import { Dialog, DialogContent, CircularProgress, Grid, Typography } from '@material-ui/core';
 
 //Icons
 import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
+import ChatIcon from '@material-ui/icons/Chat'
 
 const styles = theme => ({
     ...theme.commonStyles,
@@ -34,6 +36,15 @@ const styles = theme => ({
     closeButton: {
         position: 'absolute',
         left: '90%'
+    },
+    expandButton: {
+        position: 'absolute',
+        left: '90%'
+    },
+    spinnerDiv: {
+        textAlign: 'center',
+        marginTop: 50,
+        marginBottom: 50
     }
 })
 
@@ -67,7 +78,9 @@ class PostDialog extends Component {
         } = this.props;
 
         const dialogMarkup = loading ? (
-            <CircularProgress size={200} />
+            <div className={classes.spinnerDiv}>
+                <CircularProgress size={200} thickness={2} />
+            </div>
         ) : (
             <Grid container spacing={4}>
                 <Grid item sm={5}>
@@ -85,6 +98,12 @@ class PostDialog extends Component {
                     <Typography variant="body1">
                         {body}
                     </Typography>
+                    <LikeButton postId={postId} />
+                    <span>{likeCount} likes</span>
+                    <MyButton tip="Comments">
+                        <ChatIcon color="primary" />
+                    </MyButton>
+                    <span>{commentCount} comments</span>
                 </Grid>
             </Grid>
         )
