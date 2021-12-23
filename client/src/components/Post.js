@@ -5,6 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from "prop-types";
 import MyButton from "../utils/MyButton";
 import DeletePost from "./DeletePost";
+import PostDialog from './PostDialog';
 
 //Redux
 import { connect } from "react-redux";
@@ -97,6 +98,7 @@ class Post extends Component {
                         <ChatIcon color="primary" />
                     </MyButton>
                     <span>{commentCount} comments</span>
+                    <PostDialog postId={postId} userHandle={userHandle} />
                 </CardContent>
             </Card>
         )
