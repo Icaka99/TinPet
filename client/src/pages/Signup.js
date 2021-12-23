@@ -32,6 +32,7 @@ class Signup extends Component {
         }
     }
 
+    //ComponentWillReceiveProps alternative
     static getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.UI.errors) {
             return ({ errors: nextProps.UI.errors });
