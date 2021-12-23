@@ -5,10 +5,12 @@ import MyButton from '../../utils/MyButton';
 import dayjs from 'dayjs';
 import LikeButton from './LikeButton';
 import { Link } from 'react-router-dom';
+import Comments from './Comments';
+import CommentForm from './CommentForm';
 
 //Redux
 import { connect } from 'react-redux';
-import { getPost } from '../../redux/actions/dataActions';
+import { getPost, clearErrors } from '../../redux/actions/dataActions';
 
 //MUI stuff
 import { Dialog, DialogContent, CircularProgress, Grid, Typography } from '@material-ui/core';
@@ -20,10 +22,6 @@ import ChatIcon from '@material-ui/icons/Chat'
 
 const styles = theme => ({
     ...theme.commonStyles,
-    invisibleSeperator: {
-        border: 'none',
-        margin: 4
-    },
     profileImage: {
         maxWidth: 200,
         height: 200,
@@ -60,6 +58,7 @@ class PostDialog extends Component {
 
     handleClose = () => {
         this.setState({ open: false });
+        this.props.clearErrors();
     }
 
     render() {
@@ -72,7 +71,8 @@ class PostDialog extends Component {
                 likeCount,
                 commentCount,
                 userImage,
-                userHandle
+                userHandle,
+                comments
             },
             UI: { loading }
         } = this.props;
@@ -105,6 +105,9 @@ class PostDialog extends Component {
                     </MyButton>
                     <span>{commentCount} comments</span>
                 </Grid>
+                <hr className={classes.visibleSeperator} />
+                <CommentForm postId={postId} />
+                <Comments comments={comments} />
             </Grid>
         )
 
@@ -127,6 +130,7 @@ class PostDialog extends Component {
 }
 
 PostDialog.propTypes = {
+    clearErrors: PropTypes.func.isRequired,
     getPost: PropTypes.func.isRequired,
     postId: PropTypes.string.isRequired,
     userHandle: PropTypes.string.isRequired,
@@ -140,7 +144,8 @@ const mapStateToProps = state => ({
 })
 
 const mapActionsToProps = {
-    getPost
+    getPost,
+    clearErrors
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PostDialog));
