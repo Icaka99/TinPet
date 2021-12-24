@@ -51,6 +51,7 @@ class App extends Component {
                 <Route exact path="/login" element={<AuthRoute ><Login /></AuthRoute>} />
                 <Route exact path="/signup" element={<AuthRoute ><Signup /></AuthRoute>} />
                 <Route exact path="/users/:handle" element={<User />} />
+                <Route exact path="/users/:handle/post/:postId" element={<User />} />
               </Routes>
             </div>
           </BrowserRouter>
