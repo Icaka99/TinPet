@@ -131,7 +131,7 @@ exports.likePost = (req, res) => {
     //Get Post document
     const postDocument = db.doc(`/posts/${req.params.postId}`);
 
-    let postData = {};
+    let postData;
 
     postDocument.get()
         .then((doc) => {
@@ -182,7 +182,7 @@ exports.unlikePost = (req, res) => {
     //Get the post
     const postDocument = db.doc(`/posts/${req.params.postId}`);
 
-    let postData = {};
+    let postData;
 
     postDocument.get()
         .then((doc) => {

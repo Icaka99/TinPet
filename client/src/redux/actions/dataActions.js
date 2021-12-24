@@ -8,7 +8,7 @@ import axios from 'axios';
 export const getPosts = () => (dispatch) => {
     dispatch({ type: LOADING_DATA });
     axios.get('/posts')
-        .then(res => {
+        .then((res) => {
             dispatch({
                 type: SET_POSTS,
                 payload: res.data
@@ -20,7 +20,7 @@ export const getPosts = () => (dispatch) => {
                 payload: []
             })
         })
-}
+};
 
 //Get Post
 export const getPost = (postId) => (dispatch) => {
@@ -36,7 +36,7 @@ export const getPost = (postId) => (dispatch) => {
         .catch((err) => {
             console.log(err);
         })
-}
+};
 
 //Create a post
 export const createPost = (newPost) => (dispatch) => {
@@ -55,7 +55,7 @@ export const createPost = (newPost) => (dispatch) => {
                 payload: err.response.data
             })
         });
-}
+};
 
 //Like a post
 export const likePost = (postId) => (dispatch) => {
@@ -69,7 +69,7 @@ export const likePost = (postId) => (dispatch) => {
         .catch((err) => {
             console.log(err);
         })
-}
+};
 
 //Unlike post
 export const unlikePost = (postId) => (dispatch) => {
@@ -83,7 +83,7 @@ export const unlikePost = (postId) => (dispatch) => {
         .catch((err) => {
             console.log(err);
         })
-}
+};
 
 //Submit a comment
 export const submitComment = (postId, commentData) => (dispatch) => {
@@ -101,18 +101,21 @@ export const submitComment = (postId, commentData) => (dispatch) => {
                 payload: err.response.data
             });
         });
-}
+};
 
 //Delete post
 export const deletePost = (postId) => (dispatch) => {
     axios.delete(`/post/${postId}`)
         .then(() => {
-            dispatch({ type: DELETE_POST, payload: postId })
+            dispatch({
+                type: DELETE_POST,
+                payload: postId
+            })
         })
         .catch((err) => {
             console.log(err);
         })
-}
+};
 
 //Get user data
 export const getUserData = (userHandle) => (dispatch) => {
@@ -130,9 +133,9 @@ export const getUserData = (userHandle) => (dispatch) => {
                 payload: null
             });
         });
-}
+};
 
 //Clear Errors
 export const clearErrors = () => (dispatch) => {
     dispatch({ type: CLEAR_ERRORS });
-}
+};

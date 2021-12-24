@@ -13,7 +13,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 class LikeButton extends Component {
     likedPost = () => {
-        if (this.props.user.likes && this.props.user.likes.find(like => like.postId === this.props.postId)) {
+        if (this.props.user.likes && this.props.user.likes.find((like) => like.postId === this.props.postId)) {
             return true;
         } else {
             return false;
@@ -38,17 +38,15 @@ class LikeButton extends Component {
                 </MyButton>
             </Link>
 
+        ) : this.likedPost() ? (
+            <MyButton tip="Undo like" onClick={this.unlikePost}>
+                <FavoriteIcon color="primary" />
+            </MyButton>
         ) : (
-            this.likedPost() ? (
-                <MyButton tip="Undo like" onClick={this.unlikePost}>
-                    <FavoriteIcon color="primary" />
-                </MyButton>
-            ) : (
-                <MyButton tip="Like" onClick={this.likePost}>
-                    <FavoriteBorder color="primary" />
-                </MyButton>
-            )
-        )
+            <MyButton tip="Like" onClick={this.likePost}>
+                <FavoriteBorder color="primary" />
+            </MyButton>
+        );
 
         return likeButton;
     }

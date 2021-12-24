@@ -20,7 +20,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
 import ChatIcon from '@material-ui/icons/Chat'
 
-const styles = theme => ({
+const styles = (theme) => ({
     ...theme.commonStyles,
     profileImage: {
         maxWidth: 200,
@@ -129,7 +129,7 @@ class PostDialog extends Component {
                 <CommentForm postId={postId} />
                 <Comments comments={comments} />
             </Grid>
-        )
+        );
 
         return (
             <Fragment>
@@ -145,7 +145,7 @@ class PostDialog extends Component {
                     </DialogContent>
                 </Dialog>
             </Fragment>
-        )
+        );
     }
 }
 
@@ -156,12 +156,12 @@ PostDialog.propTypes = {
     userHandle: PropTypes.string.isRequired,
     post: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = state => ({
     post: state.data.post,
     UI: state.UI
-})
+});
 
 const mapActionsToProps = {
     getPost,

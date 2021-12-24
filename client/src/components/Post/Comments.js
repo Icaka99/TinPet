@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { PropTypes } from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 //MUI stuff
 import { Grid, Typography } from '@material-ui/core';
-import dayjs from 'dayjs';
 
 const styles = (theme) => ({
     ...theme.commonStyles,
@@ -26,7 +26,7 @@ class Comments extends Component {
 
         return (
             <Grid container>
-                {comments.map((comment, index) => {
+                {comments?.map((comment, index) => {
                     const { body, createdAt, userImage, userHandle} = comment;
                     return (
                         <Fragment key={createdAt}>

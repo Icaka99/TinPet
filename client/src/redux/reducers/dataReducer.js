@@ -29,6 +29,7 @@ export default function dataReducer (state = initialState, action) {
             let index = state.posts.findIndex((post) => post.postId === action.payload.postId);
             state.posts[index] = action.payload;
             if (state.post.postId === action.payload.postId) {
+                action.payload.comments = state.post.comments;
                 state.post = action.payload;
             }
             return {

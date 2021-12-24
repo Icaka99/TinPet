@@ -65,7 +65,7 @@ class Post extends Component {
                     <PostDialog postId={postId} userHandle={userHandle} openDialog={this.props.openDialog} />
                 </CardContent>
             </Card>
-        )
+        );
     }
 }
 
@@ -74,7 +74,7 @@ Post.propTypes = {
     post: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
     openDialog: PropTypes.bool
-}
+};
 
 const mapStateToProps = state => ({
     user: state.user

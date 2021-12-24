@@ -2,7 +2,7 @@ import { SET_USER, SET_AUTHENTICATED, SET_UNAUTHENTICATED, LOADING_USER, LIKE_PO
 
 const initialState = {
     authenticated: false,
-    loadin: false,
+    loading: false,
     credentials: {},
     likes: [],
     notifications: []
