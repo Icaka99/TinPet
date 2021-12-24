@@ -22,10 +22,10 @@ class Home extends Component {
         ) : (<p>Loading...</p>);
         return (
             <Grid container spacing={6}>
-                <Grid item sm={8} cs={12}>
+                <Grid item sm={8} xs={12}>
                     {recentPostsMarkup}
                 </Grid>
-                <Grid item sm={4} cs={12}>
+                <Grid item sm={4} xs={12}>
                     <Profile></Profile>
                 </Grid>
             </Grid>

@@ -21,6 +21,7 @@ import AuthRoute from './utils/AuthRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import User from './pages/User';
 
 const theme = createTheme(themeFile);
 
@@ -49,6 +50,7 @@ class App extends Component {
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<AuthRoute ><Login /></AuthRoute>} />
                 <Route exact path="/signup" element={<AuthRoute ><Signup /></AuthRoute>} />
+                <Route exact path="/users/:handle" element={<User />} />
               </Routes>
             </div>
           </BrowserRouter>
