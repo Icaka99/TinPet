@@ -2,7 +2,7 @@
 This is my defense project for <a href="https://softuni.bg/trainings/3575/reactjs-november-2021">ReactJS</a> course at [SoftUni](https://softuni.bg).
 
 # :memo: Overview
-&nbsp;&nbsp;&nbsp;&nbsp;**TinPet** is a basic social media app for Pets. The main idea is to gather together people that love pets, which can interact with eachother. They can share posts, like or comment on a post and view eachother profiles. People that don't want to register on our platform can browse in TinPet, but they can NOT like or comment on a post. Notifications are included such as "Someone liked/commented on your post".
+&nbsp;&nbsp;&nbsp;&nbsp;**TinPet** is a basic social media app for Pets. The main idea is to gather together people that love pets, which can interact with eachother. They can share posts, like or comment on a post and view eachother profiles. People that don't want to register on our platform can browse in TinPet, view registered users public info, but they can NOT like or comment on a post. Notifications are included such as "Someone liked/commented on your post".
   
 # 🛠 Front-End Built with:
 * [React](https://github.com/facebook/react)
