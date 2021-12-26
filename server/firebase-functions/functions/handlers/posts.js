@@ -1,5 +1,8 @@
 const {db} = require('../util/admin')
 
+const { reducePostDetails } = require('../util/validators')
+
+
 //Fetch all posts
 exports.getAllPosts = (req, res) => {
     db
@@ -216,6 +219,20 @@ exports.unlikePost = (req, res) => {
             console.error(err);
             res.status(500).json({ error: err.code });
         });
+}
+
+//Edit post
+exports.editPost = (req, res) => {
+    let postDetails = reducePostDetails(req.body);
+
+    db.doc(`/posts/${req.body.postId}`).update(postDetails)
+        .then(() => {
+            return res.json({ message: 'Post edited successfully!'});
+        })
+        .catch(err => {
+            console.error(err);
+            return res.stats(500).json({ error: err.code});
+        })
 }
 
 //Delete post

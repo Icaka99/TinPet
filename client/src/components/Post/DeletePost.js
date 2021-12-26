@@ -41,7 +41,7 @@ class DeletePost extends Component {
         const { classes } = this.props;
         return (
             <Fragment>
-                <MyButton tip="Delete Post" onClick={this.handleOpen} btnClassName={classes.deletePost}>
+                <MyButton tip="Delete Post" onClick={this.handleOpen} btnClassName={classes.deleteButton}>
                     <DeleteOutline color="secondary" />
                 </MyButton>
                 <Dialog open={this.state.open} onClose={this.handleClose} fullWidth maxWidth="sm">

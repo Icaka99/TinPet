@@ -1,4 +1,4 @@
-import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST, CREATE_POST, SET_POST, SUBMIT_COMMENT } from '../types';
+import { SET_POSTS, LIKE_POST, UNLIKE_POST, LOADING_DATA, DELETE_POST, CREATE_POST, SET_POST, SUBMIT_COMMENT, EDIT_POST, STOP_LOADING_DATA } from '../types';
 
 const initialState = {
     posts: [],
@@ -12,6 +12,11 @@ export default function dataReducer (state = initialState, action) {
             return {
                 ...state,
                 loading: true
+            };
+        case STOP_LOADING_DATA:
+            return {
+                ...state,
+                loading: false
             };
         case SET_POSTS:
             return {
@@ -35,8 +40,15 @@ export default function dataReducer (state = initialState, action) {
             return {
                 ...state
             };
+        case EDIT_POST:
+            let editIndex = state.posts.findIndex((post) => post.postId === action.payload.postId);
+            state.posts[editIndex] = action.payload;
+            return {
+                ...state,
+                loading: false
+            }
         case DELETE_POST:
-            let deleteIndex = state.posts.findIndex((post) => post.postId === action.payload);
+            let deleteIndex = state.posts.findIndex((post) => post.postId === action.payload.postId);
             state.posts.splice(deleteIndex, 1);
             return {
                 ...state

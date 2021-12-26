@@ -1,6 +1,6 @@
 import {
     SET_POSTS, LOADING_DATA, LIKE_POST, UNLIKE_POST, DELETE_POST, LOADING_UI,
-    CREATE_POST, CLEAR_ERRORS, SET_ERRORS, SET_POST, STOP_LOADING_UI, SUBMIT_COMMENT
+    CREATE_POST, CLEAR_ERRORS, SET_ERRORS, SET_POST, STOP_LOADING_UI, SUBMIT_COMMENT, EDIT_POST, STOP_LOADING_DATA
 } from '../types';
 import axios from 'axios';
 
@@ -100,6 +100,23 @@ export const submitComment = (postId, commentData) => (dispatch) => {
                 type: SET_ERRORS,
                 payload: err.response.data
             });
+        });
+};
+
+//Edit post
+export const editPost = (postDetails) => (dispatch) => {
+    dispatch({ type: LOADING_DATA });
+    axios.post(`/post/${postDetails.postId}`, postDetails)
+        .then(() => {
+            dispatch({
+                type: EDIT_POST,
+                payload: postDetails
+            });
+            dispatch({ type: STOP_LOADING_DATA });
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({ type: STOP_LOADING_DATA });
         });
 };
 

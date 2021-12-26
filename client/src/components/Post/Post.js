@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component    } from "react";
 import { Link } from "react-router-dom";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import PropTypes from "prop-types";
 import MyButton from "../../utils/MyButton";
 import DeletePost from "./DeletePost";
+import EditPost from "./EditPost";
 import PostDialog from './PostDialog';
 import LikeButton from "./LikeButton";
 
@@ -41,9 +42,12 @@ class Post extends Component {
             post: { body, createdAt, userImage, userHandle, postId, likeCount, commentCount },
             user: { authenticated, credentials: { handle } } } = this.props;
 
+        const editButton = authenticated && userHandle === handle ? (
+            <EditPost post={this.props.post} />
+        ) : null;
         const deleteButton = authenticated && userHandle === handle ? (
             <DeletePost postId={postId} />
-        ) : null
+        ) : null;
 
         return (
             <Card className={classes.card}>
@@ -53,12 +57,13 @@ class Post extends Component {
                     className={classes.image} />
                 <CardContent className={classes.content}>
                     <Typography variant="h5" component={Link} to={`/users/${userHandle}`}>{userHandle}</Typography>
+                    {editButton}
                     {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>
                     <LikeButton postId={postId} />
                     <span>{likeCount} likes</span>
-                    <MyButton tip="Comments">
+                    <MyButton tip="Comments" >
                         <ChatIcon color="primary" />
                     </MyButton>
                     <span>{commentCount} comments</span>
