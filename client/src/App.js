@@ -25,6 +25,8 @@ import User from './pages/User';
 
 const theme = createTheme(themeFile);
 
+axios.defaults.baseURL = 'https://europe-west1-tinpet-5e6b7.cloudfunctions.net/api';
+
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
