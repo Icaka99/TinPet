@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# :pencil2: TinPet
+This is my defense project for <a href="https://softuni.bg/trainings/3575/reactjs-november-2021">ReactJS</a> course at [SoftUni](https://softuni.bg).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# :memo: Overview
+&nbsp;&nbsp;&nbsp;&nbsp;**TinPet** is a basic social media app for Pets. The main idea is to gather together people that love pets, which can interact with eachother. They can share posts, like or comment on a post and view eachother profiles. People that don't want to register on our platform can browse in TinPet, view registered users public info, but they can NOT like or comment on a post. Notifications are included such as "Someone liked/commented on your post".
+  
+# 🛠 Front-End Built with:
+* [React](https://github.com/facebook/react)
+* [create-react-app](https://github.com/facebook/create-react-app)
+* [Redux](https://github.com/reduxjs/redux)
+* [React Redux](https://github.com/reduxjs/react-redux)
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+* [Axios](https://github.com/axios/axios)
+* [DayJs](https://github.com/iamkun/dayjs)
+* [JWT Decode](https://github.com/auth0/jwt-decode)
+* [Material UI](https://github.com/mui-org/material-ui)
+* [Firebase](https://firebase.google.com/)
+ # 🛠 Back-End Built with:
+* [NodeJs](https://github.com/nodejs/node)
+* [Express](https://github.com/expressjs/express)
+* [Cors](https://github.com/expressjs/cors)
+* [Busboy](https://github.com/mscdex/busboy)
+* [Firebase Toolkit](https://github.com/firebase/firebase-tools)
+* [Firebase Admin](https://github.com/firebase/firebase-admin-node)
+* [Firebase Functions](https://github.com/firebase/firebase-functions)
