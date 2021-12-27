@@ -22,8 +22,8 @@ const theme = {
     },
     image: {
       margin: '20px auto 20px auto',
-      width: '70px',
-      height: '70px',
+      width: '120px',
+      height: '120px',
     },
     pageTitle: {
       margin: '10px auto 10px auto'
