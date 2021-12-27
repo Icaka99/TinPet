@@ -22,6 +22,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import User from './pages/User';
+import NotFound from './pages/NotFound';
 
 const theme = createTheme(themeFile);
 
@@ -54,6 +55,7 @@ class App extends Component {
                 <Route exact path="/signup" element={<AuthRoute ><Signup /></AuthRoute>} />
                 <Route exact path="/users/:handle" element={<User />} />
                 <Route exact path="/users/:handle/post/:postId" element={<User />} />
+                <Route path='*' element={<NotFound />} />
               </Routes>
             </div>
           </BrowserRouter>
