@@ -81,13 +81,3 @@ exports.reduceUserDetails = (data) => {
 
     return userDetails;
 }
-
-exports.reducePostDetails = (data) => {
-    let postDetails = {};
-
-    if (!isEmpty(data.body.trim())) {
-        postDetails.body = data.body;
-    }
-
-    return postDetails;
-}

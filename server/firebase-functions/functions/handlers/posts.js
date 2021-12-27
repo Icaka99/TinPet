@@ -223,15 +223,22 @@ exports.unlikePost = (req, res) => {
 
 //Edit post
 exports.editPost = (req, res) => {
-    let postDetails = reducePostDetails(req.body);
+    if (req.body.body.trim() === '') {
+        return res.status(400).json({ body: 'Body must not be empty' });
+    }
+    
+    let post = {
+        body: req.body.body,
+        modifiedAt: new Date().toISOString()
+    }
 
-    db.doc(`/posts/${req.body.postId}`).update(postDetails)
+    db.doc(`/posts/${req.body.postId}`).update(post)
         .then(() => {
-            return res.json({ message: 'Post edited successfully!'});
+            res.json(req.body);
         })
         .catch(err => {
             console.error(err);
-            return res.stats(500).json({ error: err.code});
+            res.status(500).json({error: 'Something went wrong!'});
         })
 }
 

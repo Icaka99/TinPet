@@ -42,13 +42,12 @@ export default function dataReducer (state = initialState, action) {
             };
         case EDIT_POST:
             let editIndex = state.posts.findIndex((post) => post.postId === action.payload.postId);
-            state.posts[editIndex] = action.payload;
+            state.posts.splice(editIndex, 1, action.payload);
             return {
-                ...state,
-                loading: false
+                ...state
             }
         case DELETE_POST:
-            let deleteIndex = state.posts.findIndex((post) => post.postId === action.payload.postId);
+            let deleteIndex = state.posts.findIndex((post) => post.postId === action.payload);
             state.posts.splice(deleteIndex, 1);
             return {
                 ...state

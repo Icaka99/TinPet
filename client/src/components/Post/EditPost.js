@@ -21,16 +21,24 @@ const styles = (theme) => ({
 })
 
 class EditPost extends Component {
-    constructor() {
-        super();
-        this.state = {
-            body: '',
-            open: false,
-            errors: {}
+    state = {
+        body: '',
+        open: false,
+        errors: {}
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.UI.errors) {
+            return ({ errors: nextProps.UI.errors });
         }
+        if (!nextProps.UI.errors && !nextProps.UI.loading) {
+            return ({ errors: {}});
+        }
+        return null;
     }
 
     handleOpen = () => {
+        this.props.clearErrors();
         this.setState({
             open: true,
             body: this.props.post.body ? this.props.post.body : '',
@@ -39,7 +47,6 @@ class EditPost extends Component {
 
     handleClose = () => {
         this.setState({ open: false });
-        this.props.clearErrors();
     }
 
     handleChange = (event) => {
@@ -50,13 +57,12 @@ class EditPost extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({
+        this.setState({ 
             loading: true
         });
         const postDetails = this.props.post
         postDetails.body = this.state.body;
         this.props.editPost(postDetails);
-        this.handleClose();
     }
 
     render() {
